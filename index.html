@@ -3,19 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nepal Stock Market Analysis</title>
+    <title>Vairav Trisul - Innovative Business Solutions</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Logo styling for navbar */
+        .navbar-brand img {
+            transition: transform 0.3s ease;
+        }
+        .navbar-brand:hover img {
+            transform: scale(1.05);
+        }
+        /* Make logo text smaller on mobile */
+        @media (max-width: 576px) {
+            .navbar-brand span {
+                font-size: 1rem;
+            }
+            .navbar-brand img {
+                height: 32px !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="#">Vairavtrisul</a>
+            <a class="navbar-brand" href="#">
+                <img src="img/vairavtrisul_logo.png" alt="Vairav Trisul" style="height: 40px;">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -24,11 +44,16 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#home">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#analysis">Market Analysis</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#stocks">Top Stocks</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Our Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="#stock-analysis">Stock Analysis</a></li>
+                            <li><a class="dropdown-item" href="#business-consulting">Business Consulting</a></li>
+                            <li><a class="dropdown-item" href="#investment-solutions">Investment Solutions</a></li>
+                            <li><a class="dropdown-item" href="#market-research">Market Research</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
@@ -44,16 +69,19 @@
     <!-- Hero Section -->
     <header class="hero" id="home">
         <div class="container text-center py-5">
-            <h1 class="display-4 fw-bold">Nepal Stock Market Insights</h1>
-            <p class="lead">30 Years of Market Experience at Your Fingertips</p>
-            <a href="#analysis" class="btn btn-primary btn-lg mt-3">View Market Analysis</a>
+            <h1 class="display-4 fw-bold">Vairav Trisul</h1>
+            <p class="lead">Innovative Solutions for Your Financial Success</p>
+            <p>Empowering businesses and investors with expert analysis and strategic insights</p>
+            <a href="#services" class="btn btn-primary btn-lg me-2">Our Services</a>
+            <a href="#contact" class="btn btn-outline-light btn-lg">Get in Touch</a>
         </div>
     </header>
 
-    <!-- Market Analysis -->
-    <section class="py-5" id="analysis">
+    <!-- Stock Analysis Section -->
+    <section class="py-5 bg-light" id="stock-analysis">
         <div class="container">
-            <h2 class="text-center mb-5">Market Analysis</h2>
+            <h2 class="text-center mb-5">Stock Analysis</h2>
+            <p class="text-center mb-5">Comprehensive market analysis and insights to guide your investment decisions</p>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="card mb-4">
@@ -82,18 +110,93 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h2>30 Years of Market Excellence</h2>
-                    <p class="lead">Trusted by thousands of investors across Nepal</p>
-                    <p>With three decades of experience in the Nepalese stock market, we provide unparalleled insights and analysis to help you make informed investment decisions.</p>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-check text-primary me-2"></i> Expert Technical Analysis</li>
-                        <li><i class="fas fa-check text-primary me-2"></i> Fundamental Research</li>
-                        <li><i class="fas fa-check text-primary me-2"></i> Real-time Market Data</li>
-                        <li><i class="fas fa-check text-primary me-2"></i> Personalized Portfolio Management</li>
-                    </ul>
+                    <h2>About Vairav Trisul</h2>
+                    <p class="lead">Your Trusted Partner in Financial Excellence</p>
+                    <p>Vairav Trisul is a leading financial services company dedicated to providing innovative solutions for businesses and investors. With a team of experienced professionals, we deliver comprehensive market analysis and strategic insights to help our clients achieve their financial goals.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                <span>Expert Market Analysis</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                <span>Strategic Investment Solutions</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                <span>Personalized Advisory Services</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                <span>Comprehensive Market Research</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Stock Market" class="img-fluid rounded">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Vairav Trisul Team" class="img-fluid rounded shadow">
+                        <div class="bg-primary text-white p-3 rounded shadow position-absolute" style="bottom: -20px; right: -20px; max-width: 250px;">
+                            <h5 class="mb-1">Expert Team</h5>
+                            <p class="mb-0">Dedicated professionals with years of market experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Services -->
+    <section class="py-5" id="services">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Services</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                <i class="fas fa-chart-line text-primary fs-4"></i>
+                            </div>
+                            <h5 class="card-title">Stock Analysis</h5>
+                            <p class="card-text">In-depth technical and fundamental analysis of stocks and market trends.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                <i class="fas fa-briefcase text-primary fs-4"></i>
+                            </div>
+                            <h5 class="card-title">Business Consulting</h5>
+                            <p class="card-text">Strategic advice to help your business grow and thrive in competitive markets.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                <i class="fas fa-piggy-bank text-primary fs-4"></i>
+                            </div>
+                            <h5 class="card-title">Investment Solutions</h5>
+                            <p class="card-text">Tailored investment strategies to maximize your returns and minimize risks.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                                <i class="fas fa-search-dollar text-primary fs-4"></i>
+                            </div>
+                            <h5 class="card-title">Market Research</h5>
+                            <p class="card-text">Comprehensive market analysis to identify opportunities and trends.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -130,15 +233,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5>NepalStockPro</h5>
-                    <p>Your trusted partner in Nepal's stock market since 1993.</p>
+                    <h5>Vairav Trisul</h5>
+                    <p>Innovative financial solutions for a better tomorrow.</p>
+                    <p class="mb-0"><i class="fas fa-envelope me-2"></i> info@vairavtrisul.com</p>
+                    <p class="mb-0"><i class="fas fa-phone me-2"></i> +977 1 1234567</p>
                 </div>
                 <div class="col-md-3">
                     <h5>Quick Links</h5>
                     <ul class="list-unstyled">
                         <li><a href="#home" class="text-white">Home</a></li>
-                        <li><a href="#analysis" class="text-white">Market Analysis</a></li>
-                        <li><a href="#stocks" class="text-white">Top Stocks</a></li>
+                        <li><a href="#stock-analysis" class="text-white">Stock Analysis</a></li>
+                        <li><a href="#services" class="text-white">Our Services</a></li>
                         <li><a href="#about" class="text-white">About Us</a></li>
                     </ul>
                 </div>
@@ -154,7 +259,7 @@
             </div>
             <hr>
             <div class="text-center">
-                <p class="mb-0">&copy; 2025 Vairavtrisul. All rights reserved.</p>
+                <p class="mb-0">&copy; 2025 Vairav Trisul. All rights reserved.</p>
             </div>
         </div>
     </footer>
