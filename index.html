@@ -11,6 +11,101 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <style>
+        /* Hero section with background image */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/images3.jpeg') no-repeat center center/cover;
+            color: white;
+            padding: 120px 0;
+            position: relative;
+        }
+        /* Services Section Styling */
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #0d6efd, #0dcaf0);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: rgba(13, 110, 253, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #0d6efd;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover .service-icon {
+            background: #0d6efd;
+            color: white;
+            transform: rotateY(180deg);
+        }
+        .service-card h4 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        .service-card p {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .service-link {
+            color: #0d6efd;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .service-link:hover {
+            color: #0a58ca;
+            transform: translateX(5px);
+        }
+        /* About Section Styling */
+        .about-img-container {
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            height: 100%;
+        }
+        .about-img-container:hover {
+            transform: translateY(-5px);
+        }
+        .about-img-container img {
+            transition: transform 0.5s ease;
+        }
+        .about-img-container:hover img {
+            transform: scale(1.05);
+        }
         /* Logo styling for navbar */
         .navbar-brand img {
             transition: transform 0.3s ease;
@@ -35,7 +130,7 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <img src="img/logo.png" alt="Vairav Trisul" style="height: 40px;" class="me-2">
-                <h1 class="h4 mb-0">Vairav Trisul</h1>
+                <h1 class="h4 mb-0">Vairav Trisul<br><small class="d-block" style="font-size: 0.6em; line-height: 1.2;">investing in nepal</small></h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -69,51 +164,48 @@
 
     <!-- Hero Section -->
     <header class="hero" id="home">
-        <div class="container text-center py-5">
-            <h1 class="display-4 fw-bold">Vairav Trisul</h1>
-            <p class="lead">Innovative Solutions for Your Financial Success</p>
-            <p>Empowering businesses and investors with expert analysis and strategic insights</p>
-            <a href="#services" class="btn btn-primary btn-lg me-2">Our Services</a>
-            <a href="#contact" class="btn btn-outline-light btn-lg">Get in Touch</a>
-        </div>
-    </header>
-
-    <!-- Stock Analysis Section -->
-    <section class="py-5 bg-light" id="stock-analysis">
-        <div class="container">
-            <h2 class="text-center mb-5">Stock Analysis</h2>
-            <p class="text-center mb-5">Comprehensive market analysis and insights to guide your investment decisions</p>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h3 class="card-title">Technical Analysis</h3>
-                            <canvas id="technicalChart"></canvas>
-                            <p class="mt-3">Our technical indicators show potential buying opportunities in the banking sector.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Sector Performance</h3>
-                            <canvas id="sectorChart"></canvas>
-                            <p class="mt-3">Current sector-wise performance analysis for informed investment decisions.</p>
-                        </div>
-                    </div>
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 text-center text-white">
+                    <h1 class="display-4 fw-bold mb-3">Vairav Trisul</h1>
+                    <p class="lead fs-3 mb-4">Financial Service for Nepal</p>
+                    <p class="mb-4">Empowering your financial future with trusted guidance and expert solutions</p>
+                    <a href="#services" class="btn btn-primary btn-lg me-2">Our Services</a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg">Get in Touch</a>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
+
+   
 
     <!-- About Section -->
-    <section class="py-5" id="about">
+    <section class="py-5 bg-light" id="about">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h2>About Vairav Trisul</h2>
-                    <p class="lead">Your Trusted Partner in Financial Excellence</p>
-                    <p>Vairav Trisul is a leading financial services company dedicated to providing innovative solutions for businesses and investors. With a team of experienced professionals, we deliver comprehensive market analysis and strategic insights to help our clients achieve their financial goals.</p>
+            <div class="text-center mb-5">
+                <h2>About Vairav Trisul</h2>
+                <p class="lead">Your Strategic Financial Partner in Nepal</p>
+            </div>
+            <div class="row align-items-center g-4">
+                <div class="col-lg-4">
+                    <div class="about-img-container overflow-hidden rounded-3 shadow-sm h-100">
+                        <img src="img/images2.jpeg" alt="Our Office" class="img-fluid w-100 h-100" style="object-fit: cover; min-height: 300px;">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="p-4 h-100 d-flex flex-column justify-content-center">
+                        <h3 class="h4 mb-3">Who We Are</h3>
+                        <p class="mb-4">Vairav Trisul is a premier financial services firm specializing in investment management, business consulting, and wealth creation. With a proven track record and a team of seasoned professionals, we provide tailored solutions to help businesses grow and investors prosper in Nepal's dynamic market environment.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#services" class="btn btn-primary">Our Services</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="about-img-container overflow-hidden rounded-3 shadow-sm h-100">
+                        <img src="img/images5.jpeg" alt="Our Team" class="img-fluid w-100 h-100" style="object-fit: cover; min-height: 300px;">
+                    </div>
+                </div>
                     <div class="row mt-4">
                         <div class="col-md-6">
                             <div class="d-flex align-items-center mb-3">
@@ -150,52 +242,82 @@
         </div>
     </section>
 
-    <!-- Other Services -->
+
+
+    <!-- Services Section -->
     <section class="py-5" id="services">
         <div class="container">
-            <h2 class="text-center mb-5">Our Services</h2>
+            <div class="text-center mb-5">
+                <span class="text-primary fw-bold">OUR SERVICES</span>
+                <h2 class="display-5 fw-bold mb-3">Comprehensive Financial Solutions</h2>
+                <p class="lead text-muted">Tailored services to help you achieve your financial goals</p>
+            </div>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body text-center p-4">
-                            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
-                                <i class="fas fa-chart-line text-primary fs-4"></i>
-                            </div>
-                            <h5 class="card-title">Stock Analysis</h5>
-                            <p class="card-text">In-depth technical and fundamental analysis of stocks and market trends.</p>
+                    <div class="service-card h-100">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
                         </div>
+                        <h4>Portfolio Management</h4>
+                        <p>Customized investment strategies designed to meet your financial objectives with optimal risk management.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body text-center p-4">
-                            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
-                                <i class="fas fa-briefcase text-primary fs-4"></i>
-                            </div>
-                            <h5 class="card-title">Business Consulting</h5>
-                            <p class="card-text">Strategic advice to help your business grow and thrive in competitive markets.</p>
+                    <div class="service-card h-100">
+                        <div class="service-icon">
+                            <i class="fas fa-handshake"></i>
                         </div>
+                        <h4>Corporate Finance</h4>
+                        <p>End-to-end financial advisory for mergers, acquisitions, and corporate restructuring to drive business growth.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body text-center p-4">
-                            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
-                                <i class="fas fa-piggy-bank text-primary fs-4"></i>
-                            </div>
-                            <h5 class="card-title">Investment Solutions</h5>
-                            <p class="card-text">Tailored investment strategies to maximize your returns and minimize risks.</p>
+                    <div class="service-card h-100">
+                        <div class="service-icon">
+                            <i class="fas fa-piggy-bank"></i>
                         </div>
+                        <h4>Wealth Management</h4>
+                        <p>Personalized wealth strategies to preserve and grow your assets for long-term financial security.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body text-center p-4">
-                            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
-                                <i class="fas fa-search-dollar text-primary fs-4"></i>
-                            </div>
-                            <h5 class="card-title">Market Research</h5>
-                            <p class="card-text">Comprehensive market analysis to identify opportunities and trends.</p>
+                    <div class="service-card h-100">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Risk Management</h4>
+                        <p>Comprehensive risk assessment and mitigation strategies to protect your investments and assets.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+         <!-- Stock Analysis Section -->
+    <section class="py-5 bg-light" id="stock-analysis">
+        <div class="container">
+            <h2 class="text-center mb-5">Stock Analysis</h2>
+            <p class="text-center mb-5">Comprehensive market analysis and insights to guide your investment decisions</p>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="card-title">Technical Analysis</h3>
+                            <canvas id="technicalChart"></canvas>
+                            <p class="mt-3">Our technical indicators show potential buying opportunities in the banking sector.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Sector Performance</h3>
+                            <canvas id="sectorChart"></canvas>
+                            <p class="mt-3">Current sector-wise performance analysis for informed investment decisions.</p>
                         </div>
                     </div>
                 </div>
