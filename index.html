@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vairav Trisul - Innovative Business Solutions</title>
+    <title>Vairav Trisul - Shaping Nepal's Business Future</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -11,6 +11,183 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <style>
+        /* Sector Dropdown Styles */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .dropdown-hover .dropdown-menu {
+            border: none;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+            border-radius: 16px;
+            margin-top: 10px;
+            padding: 20px;
+            border: 1px solid rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .dropdown-item {
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin: 4px 0;
+            padding: 12px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid transparent;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, #f8f9ff, #f0f4ff);
+            border-color: #e0e7ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.1);
+        }
+        
+        .dropdown-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(135deg, #4f46e5, #8b5cf6);
+            transition: height 0.3s ease;
+            border-radius: 0 0 4px 4px;
+        }
+        
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, #f8f9ff, #f0f2ff);
+            transform: translateX(5px);
+            border-color: #e0e7ff;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+        }
+        
+        .dropdown-item:hover::before {
+            height: 100%;
+        }
+        
+        .dropdown-item .bg-light {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, #f0f4ff, #eef2ff) !important;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .dropdown-item:hover .bg-light {
+            background-color: #e9ecef !important;
+        }
+        
+        .dropdown-item i {
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, #4f46e5, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-item small {
+            font-size: 0.8rem;
+            display: block;
+            color: #6b7280 !important;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-item:hover small {
+            color: #4b5563 !important;
+        }
+        
+        .dropdown-item .fw-semibold {
+            color: #1f2937;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-item:hover .fw-semibold {
+            color: #4f46e5;
+        }
+        
+        .dropdown-item .fw-semibold::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #4f46e5, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+        
+        .dropdown-item:hover .fw-semibold::after {
+            width: 100%;
+        }
+        /* Enhanced Dropdown Hover Effects */
+        @media (min-width: 992px) {
+            .dropdown-hover {
+                position: static;
+            }
+            
+            .dropdown-hover .dropdown-menu {
+                display: block;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(10px);
+                transition: all 0.3s ease, visibility 0.3s;
+                pointer-events: none;
+                margin-top: 0;
+                width: 100%;
+                left: 0;
+                right: 0;
+                max-width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 20px;
+            }
+            
+            .dropdown-hover:hover .dropdown-menu {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+            
+            .dropdown-hover .dropdown-toggle::after {
+                display: none;
+            }
+            
+            .dropdown-hover .dropdown-menu.show {
+                display: flex !important;
+                flex-direction: column;
+            }
+        }
+        
+        /* Mobile dropdown fix */
+        @media (max-width: 991.98px) {
+            .dropdown-hover .dropdown-menu {
+                border: none;
+                box-shadow: none;
+                padding: 0.5rem 0;
+            }
+        }
+        
         /* Hero section with background image */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/images3.jpeg') no-repeat center center/cover;
@@ -140,17 +317,68 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#home">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Our Services
+                    <!-- Sectors Dropdown -->
+                    <li class="nav-item dropdown dropdown-hover position-static">
+                        <a class="nav-link d-flex align-items-center" href="#" id="sectorsDropdown" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                            <i class="fas fa-layer-group me-2"></i>
+                            <span>Sectors</span>
+                            <i class="fas fa-chevron-down ms-1 small"></i>
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                            <li><a class="dropdown-item" href="#stock-analysis">Stock Analysis</a></li>
-                            <li><a class="dropdown-item" href="#business-consulting">Business Consulting</a></li>
-                            <li><a class="dropdown-item" href="#investment-solutions">Investment Solutions</a></li>
-                            <li><a class="dropdown-item" href="#market-research">Market Research</a></li>
-                        </ul>
+                        <div class="dropdown-menu dropdown-menu-end p-4" aria-labelledby="sectorsDropdown" style="min-width: 100%;">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h6 class="mb-0 fw-bold text-dark">Explore Our Sectors</h6>
+                                <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1 rounded-pill small">4 Sectors</span>
+                                <a href="https://courses.vairavtrisul.com" class="ms-2 btn btn-sm btn-outline-primary">View All Courses</a>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-6 mb-3">
+                                    <a class="dropdown-item d-flex align-items-center p-3 rounded-3" href="https://ecommerce.vairavtrisul.com">
+                                        <div class="bg-light rounded p-2 me-2">
+                                            <i class="fas fa-shopping-cart text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold">E-Commerce</div>
+                                            <small class="text-muted">Online shopping</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                    <a class="dropdown-item d-flex align-items-center p-2 rounded" href="https://tourism.vairavtrisul.com">
+                                        <div class="bg-light rounded p-2 me-2">
+                                            <i class="fas fa-umbrella-beach text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold">Tourism</div>
+                                            <small class="text-muted">Travel & Explore</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                    <a class="dropdown-item d-flex align-items-center p-2 rounded" href="https://business.vairavtrisul.com">
+                                        <div class="bg-light rounded p-2 me-2">
+                                            <i class="fas fa-briefcase text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold">Business</div>
+                                            <small class="text-muted">Enterprise solutions</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                    <a class="dropdown-item d-flex align-items-center p-2 rounded" href="https://stock.vairavtrisul.com">
+                                        <div class="bg-light rounded p-2 me-2">
+                                            <i class="fas fa-chart-line text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold">Stock Market</div>
+                                            <small class="text-muted">Investments & Trading</small>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
                     </li>
@@ -168,10 +396,10 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12 text-center text-white">
                     <h1 class="display-4 fw-bold mb-3">Vairav Trisul</h1>
-                    <p class="lead fs-3 mb-4">Financial Service for Nepal</p>
-                    <p class="mb-4">Empowering your financial future with trusted guidance and expert solutions</p>
-                    <a href="#services" class="btn btn-primary btn-lg me-2">Our Services</a>
-                    <a href="#contact" class="btn btn-outline-light btn-lg">Get in Touch</a>
+                    <p class="lead fs-3 mb-4">Pioneering Nepal's Business Evolution</p>
+                    <p class="mb-4">Driving innovation and excellence across Nepal's most promising sectors</p>
+                    <a href="#services" class="btn btn-primary btn-lg me-2">Explore Our Sectors</a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg">Partner With Us</a>
                 </div>
             </div>
         </div>
@@ -248,77 +476,49 @@
     <section class="py-5" id="services">
         <div class="container">
             <div class="text-center mb-5">
-                <span class="text-primary fw-bold">OUR SERVICES</span>
-                <h2 class="display-5 fw-bold mb-3">Comprehensive Financial Solutions</h2>
-                <p class="lead text-muted">Tailored services to help you achieve your financial goals</p>
+                <span class="text-primary fw-bold">OUR SECTORS</span>
+                <h2 class="display-5 fw-bold mb-3">Driving Nepal's Economic Growth</h2>
+                <p class="lead text-muted">Pioneering excellence across diverse industries</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card h-100">
                         <div class="service-icon">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-briefcase"></i>
                         </div>
-                        <h4>Portfolio Management</h4>
-                        <p>Customized investment strategies designed to meet your financial objectives with optimal risk management.</p>
-                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right ms-2"></i></a>
+                        <h4>Business Solutions</h4>
+                        <p>Comprehensive business development and consulting services to help your enterprise thrive in Nepal's growing economy.</p>
+                        <a href="#business" class="service-link">Explore <i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card h-100">
                         <div class="service-icon">
-                            <i class="fas fa-handshake"></i>
+                            <i class="fas fa-mountain"></i>
                         </div>
-                        <h4>Corporate Finance</h4>
-                        <p>End-to-end financial advisory for mergers, acquisitions, and corporate restructuring to drive business growth.</p>
-                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right ms-2"></i></a>
+                        <h4>Tourism & Hospitality</h4>
+                        <p>Showcasing Nepal's natural beauty through premium travel experiences and sustainable tourism initiatives.</p>
+                        <a href="#tourism" class="service-link">Discover <i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card h-100">
                         <div class="service-icon">
-                            <i class="fas fa-piggy-bank"></i>
+                            <i class="fas fa-laptop-code"></i>
                         </div>
-                        <h4>Wealth Management</h4>
-                        <p>Personalized wealth strategies to preserve and grow your assets for long-term financial security.</p>
-                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right ms-2"></i></a>
+                        <h4>Technology & Innovation</h4>
+                        <p>Driving digital transformation and technological advancement across Nepal's business landscape.</p>
+                        <a href="#technology" class="service-link">Explore <i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card h-100">
                         <div class="service-icon">
-                            <i class="fas fa-shield-alt"></i>
+                            <i class="fas fa-leaf"></i>
                         </div>
-                        <h4>Risk Management</h4>
-                        <p>Comprehensive risk assessment and mitigation strategies to protect your investments and assets.</p>
-                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-         <!-- Stock Analysis Section -->
-    <section class="py-5 bg-light" id="stock-analysis">
-        <div class="container">
-            <h2 class="text-center mb-5">Stock Analysis</h2>
-            <p class="text-center mb-5">Comprehensive market analysis and insights to guide your investment decisions</p>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h3 class="card-title">Technical Analysis</h3>
-                            <canvas id="technicalChart"></canvas>
-                            <p class="mt-3">Our technical indicators show potential buying opportunities in the banking sector.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Sector Performance</h3>
-                            <canvas id="sectorChart"></canvas>
-                            <p class="mt-3">Current sector-wise performance analysis for informed investment decisions.</p>
-                        </div>
+                        <h4>Sustainable Development</h4>
+                        <p>Pioneering eco-friendly and sustainable business practices for a better Nepal.</p>
+                        <a href="#sustainability" class="service-link">Discover <i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>

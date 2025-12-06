@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VairavTrisul Business Services</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body { 
+      background:#f8f9fa; 
+      font-family: Arial, sans-serif;
+      padding-top: 70px;
+    }
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                  url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+      height:90vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:white;
+      margin-top: -70px;
+    }
+    .hero h1 { 
+      font-size:3.2rem; 
+      font-weight:700; 
+      text-shadow:0 0 10px rgba(0,0,0,0.5);
+      margin-bottom: 1.5rem;
+    }
+    .section-title { 
+      font-size:2.2rem; 
+      font-weight:700; 
+      text-align:center; 
+      margin-bottom:30px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background: #0d6efd;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    .service-card { 
+      border-radius:15px; 
+      transition:0.3s;
+      border: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      height: 100%;
+    }
+    .service-card:hover { 
+      transform:translateY(-8px); 
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    }
+    .card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    .card-body {
+      padding: 2rem;
+    }
+    .btn-primary {
+      background-color: #0d6efd;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .btn-primary:hover {
+      background-color: #0b5ed7;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .navbar {
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+    .navbar-brand {
+      font-weight: 700;
+      color: #0d6efd !important;
+    }
+    .nav-link {
+      font-weight: 500;
+      color: #333 !important;
+      margin: 0 5px;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+    .nav-link:hover {
+      color: #0d6efd !important;
+      background: rgba(13, 110, 253, 0.1);
+    }
+    .icon-box {
+      width: 70px;
+      height: 70px;
+      background: rgba(13, 110, 253, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: #0d6efd;
+      font-size: 30px;
+    }
+    footer { 
+      background:#111; 
+      color:white; 
+      text-align:center; 
+      padding:40px 0 20px;
+      margin-top: 60px;
+    }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="img/logo.png" alt="Vairav Trisul" style="height: 30px; margin-right: 10px;">
+      VairavTrisul Business
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#network">Network</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <h1>Leading Business Solutions Across Nepal</h1>
+        <p class="lead mb-4">Your trusted partner for enterprise growth, market expansion, and digital transformation.</p>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="#services" class="btn btn-primary btn-lg px-4">Explore Services</a>
+          <a href="#contact" class="btn btn-outline-light btn-lg px-4">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="container py-5">
+  <div class="text-center mb-5">
+    <h2 class="section-title">About VairavTrisul Business</h2>
+    <p class="lead text-muted">Empowering Nepali businesses to thrive in a competitive market</p>
+  </div>
+  
+  <div class="row g-4">
+    <div class="col-lg-6">
+      <p class="lead mb-4">
+        VairavTrisul Business is a sub-company under the VairavTrisul Group focused on building a nationwide business
+        ecosystem. With 50+ years of combined experience, we support Nepali businesses with consulting, investment,
+        strategy, and technology.
+      </p>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="d-flex">
+            <div class="me-3 text-primary">
+              <i class="fas fa-check-circle fa-2x"></i>
+            </div>
+            <div>
+              <h5>Expert Team</h5>
+              <p class="text-muted mb-0">Industry veterans with decades of experience</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex">
+            <div class="me-3 text-primary">
+              <i class="fas fa-check-circle fa-2x"></i>
+            </div>
+            <div>
+              <h5>Proven Results</h5>
+              <p class="text-muted mb-0">Track record of successful business transformations</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card h-100 p-4 text-center">
+            <div class="icon-box">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <h5>50+ Years</h5>
+            <p class="text-muted">Professional expertise in business growth and strategy</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100 p-4 text-center">
+            <div class="icon-box">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h5>Nationwide</h5>
+            <p class="text-muted">Operational in all major cities across Nepal</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100 p-4 text-center">
+            <div class="icon-box">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h5>250+ Partners</h5>
+            <p class="text-muted">Strong network of business partners and clients</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100 p-4 text-center">
+            <div class="icon-box">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h5>Growth Focused</h5>
+            <p class="text-muted">Driving sustainable business expansion</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Our Business Services</h2>
+      <p class="lead text-muted">Comprehensive solutions for your business needs</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 p-4 service-card">
+          <div class="icon-box">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <h4 class="text-center mb-3">Business Consulting</h4>
+          <p class="text-muted text-center">Helping startups, SMEs, and enterprises grow with expert planning and strategy development.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4 service-card">
+          <div class="icon-box">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <h4 class="text-center mb-3">Investment Guidance</h4>
+          <p class="text-muted text-center">Expert advice for making safe and profitable investment decisions in Nepal's dynamic market.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4 service-card">
+          <div class="icon-box">
+            <i class="fas fa-search"></i>
+          </div>
+          <h4 class="text-center mb-3">Market Research</h4>
+          <p class="text-muted text-center">Data-driven research to understand market trends, consumer behavior, and business opportunities.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4 service-card">
+          <div class="icon-box">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h4 class="text-center mb-3">Digital Transformation</h4>
+          <p class="text-muted text-center">Comprehensive digital solutions including websites, software, and business automation.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4 service-card">
+          <div class="icon-box">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <h4 class="text-center mb-3">Business Networking</h4>
+          <p class="text-muted text-center">Connecting entrepreneurs, suppliers, distributors, and investors across industries.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 p-4 service-card">
+          <div class="icon-box">
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <h4 class="text-center mb-3">Branding & Marketing</h4>
+          <p class="text-muted text-center">Professional brand identity, digital marketing, and nationwide promotion strategies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NETWORK -->
+<section id="network" class="container py-5">
+  <div class="text-center mb-5">
+    <h2 class="section-title">Our Business Network</h2>
+    <p class="lead text-muted">We collaborate with businesses across Nepal's major cities</p>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-3 col-6">
+      <div class="card h-100 p-4 text-center service-card">
+        <div class="icon-box">
+          <i class="fas fa-city"></i>
+        </div>
+        <h5>Kathmandu</h5>
+        <p class="text-muted mb-0">60+ Business Partners</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-6">
+      <div class="card h-100 p-4 text-center service-card">
+        <div class="icon-box">
+          <i class="fas fa-mountain"></i>
+        </div>
+        <h5>Pokhara</h5>
+        <p class="text-muted mb-0">35+ Business Partners</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-6">
+      <div class="card h-100 p-4 text-center service-card">
+        <div class="icon-box">
+          <i class="fas fa-store"></i>
+        </div>
+        <h5>Butwal</h5>
+        <p class="text-muted mb-0">25+ Business Partners</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-6">
+      <div class="card h-100 p-4 text-center service-card">
+        <div class="icon-box">
+          <i class="fas fa-industry"></i>
+        </div>
+        <h5>Biratnagar</h5>
+        <p class="text-muted mb-0">22+ Business Partners</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Contact Us</h2>
+          <p class="lead text-muted">Get in touch with our business team</p>
+        </div>
+        
+        <div class="card shadow-sm">
+          <div class="card-body p-4 p-md-5">
+            <form>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Your Name</label>
+                  <input type="text" class="form-control form-control-lg" placeholder="Full Name" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Email Address</label>
+                  <input type="email" class="form-control form-control-lg" placeholder="your.email@example.com" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Subject</label>
+                <input type="text" class="form-control form-control-lg" placeholder="How can we help?" required>
+              </div>
+              <div class="mb-4">
+                <label class="form-label">Your Message</label>
+                <textarea class="form-control form-control-lg" rows="4" placeholder="Type your message here..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <h5>VairavTrisul Business</h5>
+        <p class="text-muted">Empowering Nepali businesses to succeed with expert consulting, strategic planning, and comprehensive business solutions.</p>
+        <div class="social-links mt-3">
+          <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-2 mb-4 mb-md-0">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="index.html" class="text-muted text-decoration-none">Home</a></li>
+          <li class="mb-2"><a href="#about" class="text-muted text-decoration-none">About Us</a></li>
+          <li class="mb-2"><a href="#services" class="text-muted text-decoration-none">Services</a></li>
+          <li class="mb-2"><a href="#network" class="text-muted text-decoration-none">Network</a></li>
+          <li><a href="#contact" class="text-muted text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 col-lg-3 mb-4 mb-md-0">
+        <h6>Our Services</h6>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Business Consulting</a></li>
+          <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Investment Guidance</a></li>
+          <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Market Research</a></li>
+          <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Digital Transformation</a></li>
+          <li><a href="#" class="text-muted text-decoration-none">Business Networking</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <h6>Contact Info</h6>
+        <ul class="list-unstyled text-muted">
+          <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Kathmandu, Nepal</li>
+          <li class="mb-2"><i class="fas fa-phone me-2"></i> +977-1-1234567</li>
+          <li class="mb-2"><i class="fas fa-envelope me-2"></i> business@vairavtrisul.com</li>
+          <li><i class="fas fa-clock me-2"></i> Sun-Fri: 9:00 AM - 6:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <hr class="my-4 bg-secondary">
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+        <p class="mb-0">© 2025 VairavTrisul Business. All rights reserved.</p>
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <p class="mb-0">Part of the VairavTrisul Group</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
