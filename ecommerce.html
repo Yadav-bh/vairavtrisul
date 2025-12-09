@@ -130,22 +130,83 @@ mm<!DOCTYPE html>
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="index.html">
-      <img src="img/logo.png" alt="Vairav Trisul" style="height: 30px; margin-right: 10px;">
-      VairavTrisul E-Commerce
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="img/logo.png" alt="Vairav Trisul" style="height: 40px;" class="me-2">
+      <span class="h4 mb-0">Vairav Trisul</span>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="menu">
+    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
-        <li class="nav-item"><a class="nav-link" href="#featured">Featured</a></li>
-        <li class="nav-item"><a class="nav-link" href="#network">Network</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item dropdown dropdown-hover position-static">
+          <a class="nav-link d-flex align-items-center" href="#" id="sectorsDropdown" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+            <i class="fas fa-th me-1" style="font-size: 1.2rem;"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end p-4" aria-labelledby="sectorsDropdown" style="min-width: 100%;">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h6 class="mb-0 fw-bold text-dark">Explore Our Sectors</h6>
+              <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1 rounded-pill small">4 Sectors</span>
+            </div>
+            <div class="row g-2">
+              <div class="col-6 mb-3">
+                <a class="dropdown-item d-flex align-items-center p-3 rounded-3" href="ecommerce.html">
+                  <div class="bg-light rounded p-2 me-2">
+                    <i class="fas fa-shopping-cart text-primary"></i>
+                  </div>
+                  <div>
+                    <div class="fw-semibold">E-Commerce</div>
+                    <small class="text-muted">Online shopping</small>
+                  </div>
+                </a>
+              </div>
+              <div class="col-6">
+                <a class="dropdown-item d-flex align-items-center p-2 rounded" href="tourism.html">
+                  <div class="bg-light rounded p-2 me-2">
+                    <i class="fas fa-umbrella-beach text-primary"></i>
+                  </div>
+                  <div>
+                    <div class="fw-semibold">Tourism</div>
+                    <small class="text-muted">Travel & Explore</small>
+                  </div>
+                </a>
+              </div>
+              <div class="col-6">
+                <a class="dropdown-item d-flex align-items-center p-2 rounded" href="business.html">
+                  <div class="bg-light rounded p-2 me-2">
+                    <i class="fas fa-briefcase text-primary"></i>
+                  </div>
+                  <div>
+                    <div class="fw-semibold">Business</div>
+                    <small class="text-muted">Enterprise solutions</small>
+                  </div>
+                </a>
+              </div>
+              <div class="col-6">
+                <a class="dropdown-item d-flex align-items-center p-2 rounded" href="stock-market.html">
+                  <div class="bg-light rounded p-2 me-2">
+                    <i class="fas fa-chart-line text-primary"></i>
+                  </div>
+                  <div>
+                    <div class="fw-semibold">Stock Market</div>
+                    <small class="text-muted">Investments & Trading</small>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
       </ul>
     </div>
   </div>
