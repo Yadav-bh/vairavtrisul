@@ -11,6 +11,51 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <style>
+        /* Sector Cards */
+        .sector-card {
+            background: white;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+            height: 100%;
+        }
+        
+        .sector-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-color: #0d6efd;
+        }
+        
+        .sector-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #0d6efd;
+            transition: all 0.3s ease;
+        }
+        
+        .sector-card:hover .sector-icon {
+            background: #0d6efd;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .sector-card h4 {
+            color: #212529;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .sector-card:hover h4 {
+            color: #0d6efd;
+        }
+        
         /* Sector Dropdown Styles */
         @keyframes fadeInUp {
             from {
@@ -386,24 +431,215 @@
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
-            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero" id="home">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12 text-center text-white">
-                    <h1 class="display-4 fw-bold mb-3">Vairav Trisul</h1>
-                    <p class="lead fs-3 mb-4">Pioneering Nepal's Business Evolution</p>
-                    <p class="mb-4">Driving innovation and excellence across Nepal's most promising sectors</p>
-                    <a href="#services" class="btn btn-primary btn-lg me-2">Explore Our Sectors</a>
-                    <a href="#contact" class="btn btn-outline-light btn-lg">Partner With Us</a>
+    <header class="hero position-relative overflow-hidden" id="home" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
+        <div class="container py-5">
+            <div class="row align-items-center min-vh-100 py-5">
+                <div class="col-lg-6 text-white py-5">
+                    <h1 class="display-3 fw-bold mb-4">Vairav Trisul</h1>
+                    <p class="lead fs-2 mb-4 fw-light">Pioneering Nepal's Business Evolution</p>
+                    <p class="mb-4 fs-5">Driving innovation and excellence across Nepal's most promising sectors</p>
+                    <div class="d-flex flex-wrap gap-3 mb-5">
+                        <a href="#sectors" class="btn btn-light btn-lg px-4 py-3 fw-bold text-primary">Explore Our Sectors</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg px-4 py-3">Partner With Us</a>
+                    </div>
+                    
+                    <!-- Sector Cards -->
+                    <div class="row g-3 mt-5">
+                        <div class="col-6 col-md-3">
+                            <a href="ecommerce.html" class="text-decoration-none">
+                                <div class="sector-card bg-white rounded-4 p-4 h-100 text-center">
+                                    <div class="sector-icon mb-3">
+                                        <i class="fas fa-shopping-cart fa-2x text-primary"></i>
+                                    </div>
+                                    <h5 class="fw-bold mb-2">E-Commerce</h5>
+                                    <p class="small text-muted mb-0">Online Shopping</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <a href="tourism.html" class="text-decoration-none">
+                                <div class="sector-card bg-white rounded-4 p-4 h-100 text-center">
+                                    <div class="sector-icon mb-3">
+                                        <i class="fas fa-umbrella-beach fa-2x text-primary"></i>
+                                    </div>
+                                    <h5 class="fw-bold mb-2">Tourism</h5>
+                                    <p class="small text-muted mb-0">Travel & Explore</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <a href="business.html" class="text-decoration-none">
+                                <div class="sector-card bg-white rounded-4 p-4 h-100 text-center">
+                                    <div class="sector-icon mb-3">
+                                        <i class="fas fa-briefcase fa-2x text-primary"></i>
+                                    </div>
+                                    <h5 class="fw-bold mb-2">Business</h5>
+                                    <p class="small text-muted mb-0">Enterprise Solutions</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <a href="stock-market.html" class="text-decoration-none">
+                                <div class="sector-card bg-white rounded-4 p-4 h-100 text-center">
+                                    <div class="sector-icon mb-3">
+                                        <i class="fas fa-chart-line fa-2x text-primary"></i>
+                                    </div>
+                                    <h5 class="fw-bold mb-2">Stock Market</h5>
+                                    <p class="small text-muted mb-0">Investments</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="position-relative" style="z-index: 1;">
+                        <div class="position-absolute" style="top: -50px; right: -50px; width: 600px; height: 600px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                        <div class="position-relative" style="z-index: 2;">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Business Growth" 
+                                 class="img-fluid rounded-4 shadow-lg"
+                                 style="max-width: 100%; height: auto; border: 8px solid rgba(255,255,255,0.2);">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
+    
+    <style>
+        .hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDIpIj48L3JlY3Q+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIj48L3JlY3Q+PC9zdmc+');
+            opacity: 0.4;
+            z-index: 0;
+        }
+        
+        .sector-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .sector-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: rgba(13, 110, 253, 0.3);
+        }
+        
+        .sector-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+            background: rgba(13, 110, 253, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .sector-card:hover .sector-icon {
+            background: #0d6efd;
+            color: white !important;
+            transform: scale(1.1);
+        }
+        
+        .sector-card:hover .sector-icon i {
+            color: white !important;
+        }
+        
+        .btn-light {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-light:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 991.98px) {
+            .hero {
+                text-align: center;
+                padding: 4rem 0 !important;
+                min-height: auto;
+            }
+            
+            .hero .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            
+            .hero .d-flex {
+                justify-content: center;
+                flex-direction: column;
+            }
+            
+            .sector-card {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+    
+    <style>
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .custom-shape-divider-bottom-1632584188 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .custom-shape-divider-bottom-1632584188 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 100px;
+        }
+
+        .custom-shape-divider-bottom-1632584188 .shape-fill {
+            fill: #FFFFFF;
+        }
+        
+        @media (max-width: 991.98px) {
+            .hero {
+                text-align: center;
+                padding: 4rem 0 !important;
+            }
+            
+            .hero .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            
+            .hero .d-flex {
+                justify-content: center;
+                flex-direction: column;
+            }
+        }
+    </style>
 
    
 
@@ -472,54 +708,61 @@
 
 
 
-    <!-- Services Section -->
-    <section class="py-5" id="services">
+    <!-- Sectors Section -->
+    <section class="py-5 bg-light" id="sectors">
         <div class="container">
             <div class="text-center mb-5">
-                <span class="text-primary fw-bold">OUR SECTORS</span>
-                <h2 class="display-5 fw-bold mb-3">Driving Nepal's Economic Growth</h2>
-                <p class="lead text-muted">Pioneering excellence across diverse industries</p>
+                <h2 class="display-5 fw-bold mb-3">Explore Our Sectors</h2>
+                <p class="lead text-muted">Discover the diverse industries we're transforming in Nepal</p>
             </div>
             <div class="row g-4">
+                <!-- E-Commerce -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="service-card h-100">
-                        <div class="service-icon">
-                            <i class="fas fa-briefcase"></i>
+                    <a href="ecommerce.html" class="text-decoration-none">
+                        <div class="sector-card h-100 text-center p-4">
+                            <div class="sector-icon mb-3">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h4 class="mb-3">E-Commerce</h4>
+                            <p class="text-muted">Transforming retail with innovative online shopping experiences and digital storefronts.</p>
                         </div>
-                        <h4>Business Solutions</h4>
-                        <p>Comprehensive business development and consulting services to help your enterprise thrive in Nepal's growing economy.</p>
-                        <a href="#business" class="service-link">Explore <i class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
+                    </a>
                 </div>
+                <!-- Tourism -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="service-card h-100">
-                        <div class="service-icon">
-                            <i class="fas fa-mountain"></i>
+                    <a href="tourism.html" class="text-decoration-none">
+                        <div class="sector-card h-100 text-center p-4">
+                            <div class="sector-icon mb-3">
+                                <i class="fas fa-umbrella-beach"></i>
+                            </div>
+                            <h4 class="mb-3">Tourism</h4>
+                            <p class="text-muted">Showcasing Nepal's natural beauty and cultural heritage through sustainable tourism.</p>
                         </div>
-                        <h4>Tourism & Hospitality</h4>
-                        <p>Showcasing Nepal's natural beauty through premium travel experiences and sustainable tourism initiatives.</p>
-                        <a href="#tourism" class="service-link">Discover <i class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
+                    </a>
                 </div>
+                <!-- Business -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="service-card h-100">
-                        <div class="service-icon">
-                            <i class="fas fa-laptop-code"></i>
+                    <a href="business.html" class="text-decoration-none">
+                        <div class="sector-card h-100 text-center p-4">
+                            <div class="sector-icon mb-3">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h4 class="mb-3">Business</h4>
+                            <p class="text-muted">Empowering enterprises with strategic solutions for sustainable growth.</p>
                         </div>
-                        <h4>Technology & Innovation</h4>
-                        <p>Driving digital transformation and technological advancement across Nepal's business landscape.</p>
-                        <a href="#technology" class="service-link">Explore <i class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
+                    </a>
                 </div>
+                <!-- Stock Market -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="service-card h-100">
-                        <div class="service-icon">
-                            <i class="fas fa-leaf"></i>
+                    <a href="stock-market.html" class="text-decoration-none">
+                        <div class="sector-card h-100 text-center p-4">
+                            <div class="sector-icon mb-3">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h4 class="mb-3">Stock Market</h4>
+                            <p class="text-muted">Navigating financial markets with expert analysis and investment strategies.</p>
                         </div>
-                        <h4>Sustainable Development</h4>
-                        <p>Pioneering eco-friendly and sustainable business practices for a better Nepal.</p>
-                        <a href="#sustainability" class="service-link">Discover <i class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
