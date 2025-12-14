@@ -6,54 +6,162 @@
     <title>Vairav Trisul - Shaping Nepal's Business Future</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <style>
-        /* Sector Cards */
-        .sector-card {
-            background: white;
+        /* Hero Section Styling */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: #fff;
+            overflow: hidden;
+        }
+        
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Modern Card Styling */
+        .company-card {
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 12px;
-            transition: all 0.3s ease;
-            border: 1px solid #e9ecef;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             height: 100%;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
         
-        .sector-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border-color: #0d6efd;
+        .company-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            background: #fff;
         }
         
-        .sector-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto;
-            background: #f8f9fa;
-            border-radius: 50%;
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 0.75rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            color: #0d6efd;
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
         
-        .sector-card:hover .sector-icon {
-            background: #0d6efd;
-            color: white;
+        .company-logo i {
+            transition: transform 0.3s ease;
+        }
+        
+        .company-card:hover .company-logo i {
             transform: scale(1.1);
         }
         
+        .sector-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #4f46e5, #8b5cf6);
+            transition: all 0.4s ease;
+            z-index: -1;
+            opacity: 0;
+        }
+        
+        .sector-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(79, 70, 229, 0.12);
+        }
+        
+        .sector-card:hover::before {
+            opacity: 1;
+            height: 100%;
+            border-radius: 16px;
+        }
+        
+        .sector-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #f0f4ff, #e0e7ff);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: #4f46e5;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.15);
+        }
+        
+        .sector-card:hover .sector-icon {
+            background: white;
+            color: #4f46e5;
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.2);
+        }
+        
         .sector-card h4 {
-            color: #212529;
-            font-weight: 600;
-            transition: color 0.3s ease;
+            color: #1f2937;
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            display: flex;
+            transition: all 0.3s ease;
+        }
+        
+        .sector-card h4::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: #4f46e5;
+            border-radius: 3px;
+            transition: all 0.3s ease;
         }
         
         .sector-card:hover h4 {
-            color: #0d6efd;
+            color: white;
+        }
+        
+        .sector-card:hover h4::after {
+            width: 40px;
+            background: white;
+        }
+        
+        .sector-card p {
+            color: #6b7280;
+            transition: all 0.3s ease;
+            margin-bottom: 0;
+            position: relative;
+        }
+        
+        .sector-card:hover p {
+            color: rgba(255, 255, 255, 0.9);
         }
         
         /* Sector Dropdown Styles */
@@ -348,7 +456,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1a237e;">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <img src="img/logo.png" alt="Vairav Trisul" style="height: 40px;" class="me-2">
@@ -434,12 +542,226 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Dreamy Background -->
+    <section class="hero-section position-relative overflow-hidden" style="height: 100vh; min-height: 600px;">
+        <!-- Dreamy Background Image with Parallax Effect -->
+        <div class="position-absolute w-100 h-100" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat fixed; background-attachment: fixed;">
+            <!-- Animated Elements -->
+            <div class="position-absolute top-0 start-0 w-100 h-100 overflow-hidden">
+                <div class="position-absolute" style="top: 10%; left: 10%; width: 100px; height: 100px; border-radius: 50%; background: rgba(255,255,255,0.1); animation: float 15s infinite ease-in-out;"></div>
+                <div class="position-absolute" style="top: 70%; left: 80%; width: 150px; height: 150px; border-radius: 50%; background: rgba(255,255,255,0.08); animation: float 20s infinite ease-in-out reverse;"></div>
+                <div class="position-absolute" style="top: 40%; left: 60%; width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,0.05); animation: float 25s infinite ease-in-out;"></div>
+            </div>
+            <!-- Dark Overlay -->
+            <div class="position-absolute w-100 h-100" style="background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);"></div>
+        
+        <div class="container position-relative py-5">
+            <div class="row min-vh-75 align-items-center">
+                <!-- Main Content -->
+                <div class="col-lg-6 text-white mb-5 mb-lg-0">
+                    <h1 class="display-1 fw-bold mb-4" style="font-family: 'Poppins', sans-serif; letter-spacing: 2px; text-shadow: 3px 3px 6px rgba(0,0,0,0.5);">
+                        <span class="d-block" style="color: #4fc3f7;">Vairav</span>
+                        <span class="d-block" style="color: #fff; margin-top: -10px;">Trisul</span>
+                    </h1>
+                    <p class="lead mb-4 animate__animated animate__fadeInUp animate__delay-1s">Driving Nepal's economic growth through innovation and strategic business solutions</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#contact" class="btn btn-primary btn-lg px-4">Get Started</a>
+                        <a href="#about" class="btn btn-outline-light btn-lg px-4">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Business Solutions Cards -->
+                <div class="col-lg-6">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <h3 class="text-white mb-4">Our Business Solutions</h3>
+                        </div>
+                        <!-- E-commerce -->
+                        <div class="col-6 col-sm-4 col-lg-3">
+                            <a href="ecommerce.html" class="text-decoration-none">
+                                <div class="company-card h-100">
+                                    <div class="company-logo">
+                                        <i class="fas fa-shopping-cart fa-2x text-primary"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-1">E-Commerce</h6>
+                                    <p class="small text-muted mb-0">Online Shopping</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Tourism -->
+                        <div class="col-6 col-sm-4 col-lg-3">
+                            <a href="tourism.html" class="text-decoration-none">
+                                <div class="company-card h-100">
+                                    <div class="company-logo">
+                                        <i class="fas fa-umbrella-beach fa-2x text-success"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-1">Tourism</h6>
+                                    <p class="small text-muted mb-0">Travel & Explore</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Business -->
+                        <div class="col-6 col-sm-4 col-lg-3">
+                            <a href="business.html" class="text-decoration-none">
+                                <div class="company-card h-100">
+                                    <div class="company-logo">
+                                        <i class="fas fa-briefcase fa-2x text-warning"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-1">Business</h6>
+                                    <p class="small text-muted mb-0">Enterprise Solutions</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Stock Market -->
+                        <div class="col-6 col-sm-4 col-lg-3">
+                            <a href="stock-market.html" class="text-decoration-none">
+                                <div class="company-card h-100">
+                                    <div class="company-logo">
+                                        <i class="fas fa-chart-line fa-2x text-danger"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-1">Stock Market</h6>
+                                    <p class="small text-muted mb-0">Investment</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                    </div>
+                </div>
+
     <header class="hero position-relative overflow-hidden" id="home" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
         <div class="container py-5">
-            <div class="row align-items-center min-vh-100 py-5">
+            <div class="row align-items-center min-vh-100">
                 <div class="col-lg-6 text-white py-5">
-                    <h1 class="display-3 fw-bold mb-4">Vairav Trisul</h1>
+                    <h1 class="display-3 fw-bold mb-3 animate__animated animate__fadeInUp">Empowering Nepal's <span class="text-warning">Business Future</span></h1>
+                    <p class="lead mb-4 text-white-75 animate__animated animate__fadeInUp animate__delay-1s">Transforming visions into reality through strategic investments and sustainable growth in Nepal's most promising sectors.</p>
+                    <a href="#contact" class="btn btn-warning btn-lg px-4 py-3 fw-bold mb-5 animate__animated animate__fadeInUp animate__delay-1s">
+                        Get Started <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                    
+                    <div class="row g-3 mt-4">
+                        <div class="col-6 col-md-4">
+                            <div class="d-flex align-items-center text-white p-3 rounded-3" style="background: rgba(255,255,255,0.1);">
+                                <div class="me-3">
+                                    <i class="fas fa-chart-line fa-2x text-warning"></i>
+                                </div>
+                                <div>
+                                    <h4 class="mb-0 fw-bold">15+</h4>
+                                    <small>Years Experience</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="d-flex align-items-center text-white p-3 rounded-3" style="background: rgba(255,255,255,0.1);">
+                                <div class="me-3">
+                                    <i class="fas fa-handshake fa-2x text-warning"></i>
+                                </div>
+                                <div>
+                                    <h4 class="mb-0 fw-bold">50+</h4>
+                                    <small>Projects Completed</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block animate__animated animate__fadeInRight animate__delay-1s">
+                    <div class="position-relative">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-warning rounded-4" style="opacity: 0.1; transform: rotate(5deg);"></div>
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
+                             alt="Business Growth" 
+                             class="img-fluid rounded-4 shadow-lg position-relative"
+                             style="border: 1px solid rgba(255,255,255,0.2);">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Animated Background Elements -->
+        <div class="position-absolute top-0 end-0 w-50 h-100 bg-gradient-to-left" style="background: linear-gradient(90deg, rgba(26, 32, 44, 0) 0%, rgba(26, 32, 44, 0.8) 100%);"></div>
+        <div class="position-absolute bottom-0 start-0 w-100" style="height: 100px; background: linear-gradient(0deg, #fff 0%, rgba(255,255,255,0) 100%);"></div>
+    </header>
+    
+    <style>
+        /* Hero Section Styles */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero h1 {
+            font-weight: 800;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero .btn-warning {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .hero .btn-warning:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .hero .btn-warning::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            z-index: -1;
+            transition: transform 0.3s ease;
+            transform: scaleX(0);
+            transform-origin: right;
+        }
+        
+        .hero .btn-warning:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        /* Animation Classes */
+        .animate__animated.animate__fadeInUp {
+            --animate-duration: 0.8s;
+        }
+        
+        .animate__delay-1s {
+            --animate-delay: 0.3s;
+        }
+    </style>
+    
+    <!-- Animate.css for smooth animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!-- Add this before the closing body tag -->
+    <script>
+        // Add smooth scrolling to all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+                        
                     <p class="lead fs-2 mb-4 fw-light">Pioneering Nepal's Business Evolution</p>
                     <p class="mb-4 fs-5">Driving innovation and excellence across Nepal's most promising sectors</p>
                     <div class="d-flex flex-wrap gap-3 mb-5">
@@ -448,53 +770,7 @@
                     </div>
                     
                     <!-- Sector Cards -->
-                    <div class="row g-3 mt-5">
-                        <div class="col-6 col-md-3">
-                            <a href="ecommerce.html" class="text-decoration-none">
-                                <div class="sector-card bg-white rounded-4 p-4 h-100 text-center">
-                                    <div class="sector-icon mb-3">
-                                        <i class="fas fa-shopping-cart fa-2x text-primary"></i>
-                                    </div>
-                                    <h5 class="fw-bold mb-2">E-Commerce</h5>
-                                    <p class="small text-muted mb-0">Online Shopping</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <a href="tourism.html" class="text-decoration-none">
-                                <div class="sector-card bg-white rounded-4 p-4 h-100 text-center">
-                                    <div class="sector-icon mb-3">
-                                        <i class="fas fa-umbrella-beach fa-2x text-primary"></i>
-                                    </div>
-                                    <h5 class="fw-bold mb-2">Tourism</h5>
-                                    <p class="small text-muted mb-0">Travel & Explore</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <a href="business.html" class="text-decoration-none">
-                                <div class="sector-card bg-white rounded-4 p-4 h-100 text-center">
-                                    <div class="sector-icon mb-3">
-                                        <i class="fas fa-briefcase fa-2x text-primary"></i>
-                                    </div>
-                                    <h5 class="fw-bold mb-2">Business</h5>
-                                    <p class="small text-muted mb-0">Enterprise Solutions</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <a href="stock-market.html" class="text-decoration-none">
-                                <div class="sector-card bg-white rounded-4 p-4 h-100 text-center">
-                                    <div class="sector-icon mb-3">
-                                        <i class="fas fa-chart-line fa-2x text-primary"></i>
-                                    </div>
-                                    <h5 class="fw-bold mb-2">Stock Market</h5>
-                                    <p class="small text-muted mb-0">Investments</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                    
                 <div class="col-lg-6 d-none d-lg-block">
                     <div class="position-relative" style="z-index: 1;">
                         <div class="position-absolute" style="top: -50px; right: -50px; width: 600px; height: 600px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
@@ -671,38 +947,7 @@
                     </div>
                 </div>
                     <div class="row mt-4">
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-check-circle text-primary me-2"></i>
-                                <span>Expert Market Analysis</span>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-check-circle text-primary me-2"></i>
-                                <span>Strategic Investment Solutions</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-check-circle text-primary me-2"></i>
-                                <span>Personalized Advisory Services</span>
-                            </div>
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-check-circle text-primary me-2"></i>
-                                <span>Comprehensive Market Research</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="position-relative">
-                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Vairav Trisul Team" class="img-fluid rounded shadow">
-                        <div class="bg-primary text-white p-3 rounded shadow position-absolute" style="bottom: -20px; right: -20px; max-width: 250px;">
-                            <h5 class="mb-1">Expert Team</h5>
-                            <p class="mb-0">Dedicated professionals with years of market experience</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                       
         </div>
     </section>
 
