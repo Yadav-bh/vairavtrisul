@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nepal Real Estate | Buy & Sell Property</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Find your dream property in Nepal. Buy, sell, or rent residential and commercial properties across Kathmandu, Pokhara, and more.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="https://img.icons8.com/color/48/000000/real-estate.png" type="image/x-icon">
+  
+  <!-- Bootstrap 5 CDN -->
+      <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1a237e;
+      --secondary: #3498db;
+      --accent: #e74c3c;
+      --light: #ecf0f1;
+      --dark: #2c3e50;
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #1a237e !important;
+      padding: 10px 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 5px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white !important;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-brand img {
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand:hover img {
+      transform: scale(1.05);
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.9) !important;
+      font-weight: 500;
+      padding: 0.5rem 1rem !important;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #fff !important;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 15px;
+      background-color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: calc(100% - 30px);
+    }
+
+    /* Dropdown Menu */
+    .dropdown-menu {
+      border: none;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+      border-radius: 16px;
+      margin-top: 10px;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .dropdown-item {
+      padding: 0.75rem 1.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-item:hover {
+      background-color: #f8f9fa;
+    }
+
+    .dropdown-hover:hover .dropdown-menu {
+      display: block;
+      margin-top: 0;
+    }
+
+    /* Make logo text smaller on mobile */
+    @media (max-width: 576px) {
+      .navbar-brand span {
+        font-size: 1rem;
+      }
+      .navbar-brand img {
+        height: 32px !important;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                  url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover no-repeat fixed;
+      height: 100vh;
+      min-height: 650px;
+      color: white;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(52, 152, 219, 0.3), rgba(46, 204, 113, 0.3));
+      z-index: 1;
+      opacity: 0.5;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease-out 0.2s;
+      animation-fill-mode: both;
+    }
+
+    /* Property Cards */
+    .property-card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: var(--transition);
+      margin-bottom: 30px;
+      position: relative;
+      background: white;
+    }
+
+    .property-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .property-card .card-img-top {
+      height: 240px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .property-card:hover .card-img-top {
+      transform: scale(1.05);
+    }
+
+    .property-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--accent);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .card-title {
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Services */
+    #services {
+      background: #f8f9fa;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .services {
+      padding: 3rem 0;
+    }
+
+    .service-box {
+      background: white;
+      padding: 2.5rem 2rem;
+      border-radius: 15px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      height: 100%;
+    }
+
+    .service-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .service-box i {
+      font-size: 3rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .service-box:hover i {
+      transform: scale(1.1);
+      color: var(--accent);
+    }
+
+    .service-box h5 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    /* Contact Form */
+    #contact {
+      position: relative;
+      background: white;
+    }
+
+    .form-control {
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: 1px solid #e0e0e0;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+      border-color: var(--secondary);
+    }
+
+    .btn-primary {
+      background: var(--secondary);
+      border: none;
+      padding: 12px 30px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 50px;
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    /* Section Title */
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-weight: 800;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+      padding-bottom: 15px;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 3px;
+      background: var(--accent);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .section-title p {
+      color: #666;
+      font-size: 1.1rem;
+      margin-top: 15px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 30px 0 20px;
+      position: relative;
+    }
+
+    .social-links {
+      margin: 20px 0;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.2rem;
+      margin: 0 10px;
+      transition: var(--transition);
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
+
+    .social-links a:hover {
+      background: var(--accent);
+      transform: translateY(-5px);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #1a237e; padding: 10px 0; transition: all 0.3s ease;">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="img/logo.png" alt="Vairav Trisul" style="height: 40px;" class="me-2">
+            <span class="h4 mb-0">Vairav Trisul</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <!-- Sectors Dropdown -->
+                <li class="nav-item dropdown dropdown-hover position-static">
+                    <a class="nav-link d-flex align-items-center" href="#" id="sectorsDropdown" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                        <i class="fas fa-layer-group me-2"></i>
+                        <i class="fas fa-th" style="font-size: 1.2rem;"></i>
+                        <i class="fas fa-chevron-down ms-1 small"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end p-4" aria-labelledby="sectorsDropdown" style="min-width: 100%;">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6 class="mb-0 fw-bold text-dark">Explore Our Sectors</h6>
+                            <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1 rounded-pill small">5 Sectors</span>
+                            <a href="https://courses.vairavtrisul.com" class="ms-2 btn btn-sm btn-outline-primary">View All Courses</a>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col-6 mb-3">
+                                <a class="dropdown-item d-flex align-items-center p-3 rounded-3" href="https://ecommerce.vairavtrisul.com">
+                                    <div class="bg-light rounded p-2 me-2">
+                                        <i class="fas fa-shopping-cart text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-semibold">E-Commerce</div>
+                                        <small class="text-muted">Online shopping</small>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a class="dropdown-item d-flex align-items-center p-2 rounded" href="https://tourism.vairavtrisul.com">
+                                    <div class="bg-light rounded p-2 me-2">
+                                        <i class="fas fa-umbrella-beach text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-semibold">Tourism</div>
+                                        <small class="text-muted">Travel & Explore</small>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a class="dropdown-item d-flex align-items-center p-2 rounded" href="https://business.vairavtrisul.com">
+                                    <div class="bg-light rounded p-2 me-2">
+                                        <i class="fas fa-briefcase text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-semibold">Business</div>
+                                        <small class="text-muted">Enterprise solutions</small>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a class="dropdown-item d-flex align-items-center p-2 rounded" href="https://stock.vairavtrisul.com">
+                                    <div class="bg-light rounded p-2 me-2">
+                                        <i class="fas fa-chart-line text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-semibold">Stock Market</div>
+                                        <small class="text-muted">Investments & Trading</small>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a class="dropdown-item d-flex align-items-center p-2 rounded bg-light" href="real-estate.html">
+                                    <div class="bg-primary bg-opacity-10 rounded p-2 me-2">
+                                        <i class="fas fa-home" style="color: #9c27b0;"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-semibold">Real Estate</div>
+                                        <small class="text-primary">Properties & Housing</small>
+                                    </div>
+                                    <i class="fas fa-arrow-right ms-auto text-primary"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="container">
+    <div class="hero-content text-center">
+      <h1 class="animate__animated animate__fadeInDown">Find Your Dream Property in Nepal</h1>
+      <p class="animate__animated animate__fadeInUp">Discover the perfect home that matches your lifestyle and budget</p>
+      <a href="#properties" class="btn btn-primary btn-lg px-5 py-3 animate__animated animate__fadeInUp animate__delay-1s">
+        <i class="fas fa-search me-2"></i>Explore Properties
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTIES -->
+<section id="properties" class="py-5 bg-light">
+  <div class="container py-5">
+    <div class="section-title">
+      <h2>Featured Properties</h2>
+      <p>Discover our handpicked selection of premium properties</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Property 1 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="property-card card h-100">
+          <div class="position-relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994" class="card-img-top" alt="Luxury House">
+            <span class="property-badge">For Sale</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Luxury House - Kathmandu</h5>
+            <p class="card-text">Rs. 3,50,00,000</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div><i class="fas fa-bed me-2 text-muted"></i> 4 Beds</div>
+              <div><i class="fas fa-bath me-2 text-muted"></i> 3 Baths</div>
+              <div><i class="fas fa-ruler-combined me-2 text-muted"></i> 3200 sq.ft</div>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent border-top-0">
+            <a href="#" class="btn btn-outline-primary w-100">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Property 2 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="property-card card h-100">
+          <div class="position-relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1605146769289-440113cc3d00" class="card-img-top" alt="Modern Villa">
+            <span class="property-badge">For Rent</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Modern Villa - Pokhara</h5>
+            <p class="card-text">Rs. 2,80,00,000</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div><i class="fas fa-bed me-2 text-muted"></i> 5 Beds</div>
+              <div><i class="fas fa-bath me-2 text-muted"></i> 4 Baths</div>
+              <div><i class="fas fa-ruler-combined me-2 text-muted"></i> 4500 sq.ft</div>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent border-top-0">
+            <a href="#" class="btn btn-outline-primary w-100">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Property 3 -->
+      <div class="col-lg-4 col-md-6 mx-auto">
+        <div class="property-card card h-100">
+          <div class="position-relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c" class="card-img-top" alt="Land for Sale">
+            <span class="property-badge">For Sale</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Land for Sale - Lalitpur</h5>
+            <p class="card-text">Rs. 1,20,00,000</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div><i class="fas fa-ruler me-2 text-muted"></i> 10 Aana</div>
+              <div><i class="fas fa-map-marker-alt me-2 text-muted"></i> Lalitpur</div>
+              <div><i class="fas fa-compass me-2 text-muted"></i> Facing East</div>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent border-top-0">
+            <a href="#" class="btn btn-outline-primary w-100">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-5">
+      <a href="#" class="btn btn-primary btn-lg px-4">View All Properties <i class="fas fa-arrow-right ms-2"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-5">
+  <div class="container py-5">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Comprehensive real estate solutions for all your needs</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="service-box p-4 h-100">
+          <i class="fas fa-home"></i>
+          <h5>Property Sales</h5>
+          <p class="mb-0">Find your dream home from our extensive collection of residential and commercial properties across Nepal.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="service-box p-4 h-100">
+          <i class="fas fa-key"></i>
+          <h5>Property Rental</h5>
+          <p class="mb-0">Browse through our selection of rental properties and find the perfect space that fits your needs and budget.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mx-auto">
+        <div class="service-box p-4 h-100">
+          <i class="fas fa-search-dollar"></i>
+          <h5>Property Valuation</h5>
+          <p class="mb-0">Get accurate market valuation for your property with our professional assessment services.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-5 bg-light">
+  <div class="container py-5">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>Get in touch with our real estate experts</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card shadow-sm">
+          <div class="card-body p-5">
+            <div class="row">
+              <div class="col-lg-6">
+                <h4 class="mb-4">Send us a message</h4>
+                <form>
+                  <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Your Name" required>
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Email Address" required>
+                  </div>
+                  <div class="mb-3">
+                    <input type="tel" class="form-control" placeholder="Phone Number">
+                  </div>
+                  <div class="mb-3">
+                    <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                </form>
+              </div>
+              <div class="col-lg-5 offset-lg-1 mt-4 mt-lg-0">
+                <h4 class="mb-4">Contact Info</h4>
+                <div class="d-flex mb-4">
+                  <div class="me-3 text-primary">
+                    <i class="fas fa-map-marker-alt fa-2x"></i>
+                  </div>
+                  <div>
+                    <h6 class="mb-1">Our Location</h6>
+                    <p class="mb-0">Durbar Marg, Kathmandu 44600, Nepal</p>
+                  </div>
+                </div>
+                <div class="d-flex mb-4">
+                  <div class="me-3 text-primary">
+                    <i class="fas fa-phone-alt fa-2x"></i>
+                  </div>
+                  <div>
+                    <h6 class="mb-1">Phone Number</h6>
+                    <p class="mb-0">+977 1-1234567<br>+977 9801234567</p>
+                  </div>
+                </div>
+                <div class="d-flex">
+                  <div class="me-3 text-primary">
+                    <i class="fas fa-envelope fa-2x"></i>
+                  </div>
+                  <div>
+                    <h6 class="mb-1">Email Address</h6>
+                    <p class="mb-0">info@nepalestate.com<br>sales@nepalestate.com</p>
+                  </div>
+                </div>
+                <div class="social-links mt-4">
+                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <h5 class="text-uppercase mb-4">About NepalEstate</h5>
+        <p>NepalEstate is a leading real estate agency in Nepal, providing exceptional service in property sales, rentals, and investment opportunities across the country.</p>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="text-uppercase mb-4">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="#" class="text-white text-decoration-none">Home</a></li>
+          <li class="mb-2"><a href="#properties" class="text-white text-decoration-none">Properties</a></li>
+          <li class="mb-2"><a href="#services" class="text-white text-decoration-none">Services</a></li>
+          <li class="mb-2"><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <h5 class="text-uppercase mb-4">Popular Locations</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Kathmandu</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Pokhara</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Lalitpur</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Bhaktapur</a></li>
+          <li><a href="#" class="text-white-50 text-decoration-none">View All</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h5 class="text-uppercase mb-4">Newsletter</h5>
+        <p>Subscribe to our newsletter for the latest property updates and offers.</p>
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email" aria-describedby="button-addon2">
+          <button class="btn btn-primary" type="button" id="button-addon2">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <hr class="my-4">
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center text-md-start">
+        <p class="mb-0">&copy; 2025 NepalEstate. All rights reserved.</p>
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <p class="mb-0">
+          <a href="#" class="text-white text-decoration-none me-3">Terms of Service</a>
+          <a href="#" class="text-white text-decoration-none">Privacy Policy</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top Button -->
+<a href="#" class="btn btn-primary btn-lg back-to-top" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+<script>
+  // Navbar scroll effect
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+      document.getElementById('backToTop').classList.add('show');
+    } else {
+      navbar.classList.remove('scrolled');
+      document.getElementById('backToTop').classList.remove('show');
+    }
+  });
+
+  // Back to top button
+  document.getElementById('backToTop').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        const offset = 80; // Adjust this value based on your header height
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Animation on scroll
+  const animateOnScroll = function() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    
+    elements.forEach(element => {
+      const elementPosition = element.getBoundingClientRect().top;
+      const screenPosition = window.innerHeight / 1.3;
+      
+      if (elementPosition < screenPosition) {
+        element.classList.add('animate__animated', 'animate__fadeInUp');
+      }
+    });
+  };
+  
+  window.addEventListener('scroll', animateOnScroll);
+  window.addEventListener('load', animateOnScroll);
+</script>
+
+</body>
+</html>

@@ -456,7 +456,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1a237e;">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #1a237e; padding: 10px 0; transition: all 0.3s ease;">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <img src="img/logo.png" alt="Vairav Trisul" style="height: 40px;" class="me-2">
@@ -480,7 +480,7 @@
                         <div class="dropdown-menu dropdown-menu-end p-4" aria-labelledby="sectorsDropdown" style="min-width: 100%;">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <h6 class="mb-0 fw-bold text-dark">Explore Our Sectors</h6>
-                                <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1 rounded-pill small">4 Sectors</span>
+                                <span class="badge bg-primary bg-opacity-10 text-primary px-2 py-1 rounded-pill small">5 Sectors</span>
                                 <a href="https://courses.vairavtrisul.com" class="ms-2 btn btn-sm btn-outline-primary">View All Courses</a>
                             </div>
                             <div class="row g-2">
@@ -528,6 +528,17 @@
                                         </div>
                                     </a>
                                 </div>
+                                <div class="col-6">
+                                    <a class="dropdown-item d-flex align-items-center p-2 rounded" href="real-estate.html">
+                                        <div class="bg-light rounded p-2 me-2">
+                                            <i class="fas fa-home text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-semibold">Real Estate</div>
+                                            <small class="text-muted">Properties & Housing</small>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </li>
@@ -543,7 +554,10 @@
     </nav>
 
     <!-- Hero Section with Dreamy Background -->
-    <section class="hero-section position-relative overflow-hidden" style="height: 100vh; min-height: 600px;">
+    <!-- Add padding to account for fixed navbar -->
+    <div style="padding-top: 80px;"></div>
+    
+    <section class="hero-section position-relative overflow-hidden" style="min-height: calc(100vh - 80px);">
         <!-- Dreamy Background Image with Parallax Effect -->
         <div class="position-absolute w-100 h-100" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat fixed; background-attachment: fixed;">
             <!-- Animated Elements -->
@@ -576,15 +590,28 @@
                         <div class="col-12">
                             <h3 class="text-white mb-4">Our Business Solutions</h3>
                         </div>
-                        <!-- E-commerce -->
+                        <!-- Stock Market -->
                         <div class="col-6 col-sm-4 col-lg-3">
-                            <a href="ecommerce.html" class="text-decoration-none">
+                            <a href="stock-market.html" class="text-decoration-none">
                                 <div class="company-card h-100">
                                     <div class="company-logo">
-                                        <i class="fas fa-shopping-cart fa-2x text-primary"></i>
+                                        <i class="fas fa-chart-line fa-2x text-danger"></i>
                                     </div>
-                                    <h6 class="fw-bold mb-1">E-Commerce</h6>
-                                    <p class="small text-muted mb-0">Online Shopping</p>
+                                    <h6 class="fw-bold mb-1">Stock Market</h6>
+                                    <p class="small text-muted mb-0">Investment</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Real Estate -->
+                        <div class="col-6 col-sm-4 col-lg-3">
+                            <a href="real-estate.html" class="text-decoration-none">
+                                <div class="company-card h-100">
+                                    <div class="company-logo">
+                                        <i class="fas fa-home fa-2x" style="color: #9c27b0;"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-1">Real Estate</h6>
+                                    <p class="small text-muted mb-0">Properties & Development</p>
                                 </div>
                             </a>
                         </div>
@@ -615,15 +642,15 @@
                             </a>
                         </div>
                         
-                        <!-- Stock Market -->
+                        <!-- E-commerce -->
                         <div class="col-6 col-sm-4 col-lg-3">
-                            <a href="stock-market.html" class="text-decoration-none">
+                            <a href="ecommerce.html" class="text-decoration-none">
                                 <div class="company-card h-100">
                                     <div class="company-logo">
-                                        <i class="fas fa-chart-line fa-2x text-danger"></i>
+                                        <i class="fas fa-shopping-cart fa-2x text-primary"></i>
                                     </div>
-                                    <h6 class="fw-bold mb-1">Stock Market</h6>
-                                    <p class="small text-muted mb-0">Investment</p>
+                                    <h6 class="fw-bold mb-1">E-Commerce</h6>
+                                    <p class="small text-muted mb-0">Online Shopping</p>
                                 </div>
                             </a>
                         </div>
